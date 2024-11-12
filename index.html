@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Ejemplo web api</title>
+	<meta charset="utf-8" />
+	<LINK REL=StyleSheet HREF="/estilo.css" TYPE="text/css" MEDIA=screen>
+	<script src="codigo.js"></script>
+
+</head>
+
+<body>
+	<h1>Guía #61c TPI115</h1>
+	<h3>… Ejemplo web api</h3>
+	<p>Pamela Nicole Barrientos Cruz, con carnet BC21009</p>
+	<p>
+		<button onclick="obtenerProductos();this.style.display='none';">Obtener Productos</button>
+		<button id="toggleListado" onclick="toggleListado()" style="display:none;">Enrollar Lista</button>
+	</p>
+	
+	<!-- Formulario para añadir un producto -->
+	<div id="formularioProducto">
+		<h3>Agregar Nuevo Producto</h3>
+		<form id="nuevoProductoForm">
+			<label for="titulo">Título:</label>
+			<input type="text" id="titulo" name="titulo" required><br><br>
+
+			<label for="precio">Precio:</label>
+			<input type="number" id="precio" name="precio" required><br><br>
+
+			<label for="descripcion">Descripción:</label>
+			<textarea id="descripcion" name="descripcion" required></textarea><br><br>
+
+			<label for="imagen">URL de la Imagen:</label>
+			<input type="url" id="imagen" name="imagen" required><br><br>
+
+			<label for="categoria">Categoría:</label>
+			<select id="categoria" name="categoria" required>
+				<option value="electronicos">Electrónicos</option>
+				<option value="joyeria">Joyería</option>
+				<option value="caballeros">Ropa Caballero</option>
+				<option value="damas">Ropa Dama</option>
+			</select><br><br>
+
+			<button type="button" onclick="agregarProducto()">Agregar Producto</button>
+		</form>
+	</div>
+	
+	<!-- Lista de productos -->
+	<div id="listado" style="display:none;">
+		<form name="filtroprods" id="filtroprods">
+			Seleccione Categorias
+			<input type="checkbox" id="c1" value="c1" checked>Electronicos
+			<input type="checkbox" id="c2" value="c2" checked>Joyería
+			<input type="checkbox" id="c3" value="c3" checked>Ropa Caballero
+			<input type="checkbox" id="c4" value="c4" checked>Ropa Dama
+			<ol>
+				<li>Click en la imagen para Acercamiento</li>
+				<li>Click en precio para ordenar Asc o Desc</li>
+			</ol>
+			<table id="tabla" border="1">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>foto</th>
+						<th id="price">price</th>
+						<th>title</th>
+						<th>description</th>
+						<th>category</th>
+					</tr>
+				</thead>
+				<tbody id="tbody"></tbody>
+			</table>
+		</form>
+	</div>
+
+</body>
+
+</html>
+
+<script>
+var fila =
+  "<tr><td class='id'></td><td class='foto'></td><td class='price'></td><td class='title'></td><td class='description'></td><td class='category'></td><td class='eliminar'></td></tr>";
+</script>
